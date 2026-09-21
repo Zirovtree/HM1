@@ -1,7 +1,7 @@
 package org.example
 import kotlin.random.Random
 
-fun main(){
+fun main() {
 }
 
 // Первая часть
@@ -36,12 +36,12 @@ class Warrior(name: String, hp: Int): Hero(name, hp), Attacker {
     override fun attack(target: Hero): Int {
         val critChance = Random.nextInt(101) < 20
         if (critChance) {
-            println("$name наносит критический урон $critDamage по $target.name")
+            println("$name наносит критический урон $critDamage по ${target.name}")
             target.takeDamage(critDamage)
             return critDamage
         }
         else {
-            println("$name наносит $baseDamage единиц урона по $target.name")
+            println("$name наносит $baseDamage единиц урона по ${target.name}")
             target.takeDamage(baseDamage)
             return baseDamage
         }
@@ -83,7 +83,7 @@ class Paladin(name: String, hp: Int): Hero(name, hp), Attacker, Spellcaster {
     override val baseDamage: Int = 10
 
     override fun attack(target: Hero): Int {
-        println("$name наносит $baseDamage единиц урона по $target.name")
+        println("$name наносит $baseDamage единиц урона по ${target.name}")
         target.takeDamage(baseDamage)
         return baseDamage
     }
